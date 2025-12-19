@@ -1,0 +1,20 @@
+.product
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 95vh;
+    width: 95vw;
+}
+
+.link{
+ text-decoration: none;
+ color: inherit;
+ font-size: 20px;
+}
+
+.icons{
+    color: skyblue;
+}
+
