@@ -22,4 +22,15 @@ const API_DOMAIN=process.env.NEXT_PUBLIC_API_DOMAIN?process.env.NEXT_PUBLIC_API_
             }
         }
 
+        export async function getSingleProduct(id){
+            try{
+                const response=await fetch(`${API_DOMAIN}/products/${id}`)
+                const res=await response.json();
+                return res;
+            }catch(error){  
+                console.log(error);
+                return {};
+            }
+        }
+
     
