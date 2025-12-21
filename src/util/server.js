@@ -33,4 +33,62 @@ const API_DOMAIN=process.env.NEXT_PUBLIC_API_DOMAIN?process.env.NEXT_PUBLIC_API_
             }
         }
 
+
+        export async function getAllPost(){
+            try{
+                const response=await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/post`,{cache:"no-cache"});
+                const res=await response.json();
+                return res;
+            }catch(error){
+                console.log(error);
+                return [];
+            }
+        }
+
+        export async function getPostById(id){
+            try{
+                const response=await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/post/${id}`,{cache:"no-cache"});
+                const res=await response.json();
+                return res;
+            }catch(error){
+                console.log(error);
+                return {};
+            }
+        }
+
+        export async function deletePostById(id){
+            try{
+                const response=await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/post/${id}`,{
+                    method:"DELETE",
+                    cache:"no-cache"
+                });
+                const resp=await response.json();
+                return resp;
+            }catch(error){
+                console.log(error);
+            }
+        }
+
+        export async function editPostData(id,data){
+            try{
+            const response=await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/post/${id}`,{
+                method:"PUT",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify(data),
+                cache:"no-cache"});
+                const res=await response.json();
+                return res;
+            }catch(error){
+                console.log(error);
+                return {};
+            }
+
+               
+        }
+
+
+    
+
     
