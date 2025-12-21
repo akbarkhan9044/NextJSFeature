@@ -11,6 +11,17 @@ const API_DOMAIN=process.env.NEXT_PUBLIC_API_DOMAIN?process.env.NEXT_PUBLIC_API_
         }
         }
 
+        export async function getAllUser(){
+            try{
+                const response=await fetch("https://jsonplaceholder.typicode.com/users");
+                const res=await response.json();
+                return res;
+            }catch(error){
+                console.log(error);
+                return [];
+            }
+            }
+
         export async function getProducts(){
             try{
                 const response=await fetch(`${API_DOMAIN}/products`,{cache:"no-cache"});
