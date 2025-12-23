@@ -1,4 +1,5 @@
 import { connectDatabase } from "@/src/util/db";
+import { revalidateTag } from "next/cache";
 import Product from "../../model/Product";
 
 export const POST=async(request)=>{
@@ -6,6 +7,7 @@ export const POST=async(request)=>{
         const data=await request.formData();
       let  newProduct=Object.fromEntries(data);
         const response=await Product.create(newProduct);
+        revalidateTag("add-user");
         return Response.redirect(`${process.env.NEXT_AUTH_URL}`)
     }catch(error){
         return new Response(JSON.stringify({message:"Error while adding data"}),{status:400});

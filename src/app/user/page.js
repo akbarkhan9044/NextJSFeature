@@ -1,9 +1,10 @@
+"use cache"
 import { getAllUser } from '@/src/util/server';
 import React from 'react'
 import Link from 'next/link';
-
 export default async function User() {
-    const response=await getAllUser();
+
+  const response=await getAllUser();
 
     return (
       <div >

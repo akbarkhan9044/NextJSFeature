@@ -5,7 +5,7 @@ export default async function Delete({params}) {
     const {id}=await params;
   return (
     <div>
-      <DeletePostData  id={id} />
+  {id && (    <DeletePostData  id={id} />)}
     </div>
   )
 }
